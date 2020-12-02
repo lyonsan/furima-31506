@@ -67,5 +67,7 @@
 | phone_number  | string     | null: false                    |
 | order         | references | null: false, foreign_key: true |
 
+### Associationテーブル
+
 - belongs_to :order
 - belongs_to_active_hash :prefecture
