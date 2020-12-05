@@ -12,9 +12,11 @@ class User < ApplicationRecord
     validates :last_name_kana
     validates :first_name_kana
   end
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :birthday
+  end
   validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
   validates :email, uniqueness: true
-  validates :birthday, presence: true
   has_many :items
 end
