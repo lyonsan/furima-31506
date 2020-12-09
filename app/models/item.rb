@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :explanation
   end
   with_options numericality: { other_than: 1 } do
-    validates :categoty_id
+    validates :category_id
     validates :status_id
     validates :delivery_fee_id
     validates :prefecture_id
