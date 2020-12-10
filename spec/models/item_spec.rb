@@ -10,7 +10,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it 'priceが300円以上9999999円以下で出品できる' do
-        @item.price = 50000
+        @item.price = 50_000
         expect(@item).to be_valid
       end
     end
@@ -33,27 +33,27 @@ RSpec.describe Item, type: :model do
       it 'category_idが1だと出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Category must be other than 1"
+        expect(@item.errors.full_messages).to include 'Category must be other than 1'
       end
       it 'status_idが1だと出品できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Status must be other than 1"
+        expect(@item.errors.full_messages).to include 'Status must be other than 1'
       end
       it 'delivery_fee_idが1だと出品できない' do
         @item.delivery_fee_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Delivery fee must be other than 1"
+        expect(@item.errors.full_messages).to include 'Delivery fee must be other than 1'
       end
       it 'prefecture_idが1だと出品できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
+        expect(@item.errors.full_messages).to include 'Prefecture must be other than 1'
       end
       it 'delivery_date_idが1だと出品できない' do
         @item.delivery_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Delivery date must be other than 1"
+        expect(@item.errors.full_messages).to include 'Delivery date must be other than 1'
       end
       it 'priceがないと出品できない' do
         @item.price = nil
@@ -63,12 +63,12 @@ RSpec.describe Item, type: :model do
       it 'priceが300~9999999円の範囲でないと出品できない' do
         @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price は販売価格の範囲外です"
+        expect(@item.errors.full_messages).to include 'Price は販売価格の範囲外です'
       end
       it 'priceが半角でないと出品できない' do
-        @item.price = "１０００"
+        @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price には半角数字を入力してください"
+        expect(@item.errors.full_messages).to include 'Price には半角数字を入力してください'
       end
     end
   end
