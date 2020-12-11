@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 //javascriptを正常に動作させるためturbolinksの記述を無効化
 require("@rails/activestorage").start()
 require("channels")
+require("../calculate")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
