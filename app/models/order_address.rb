@@ -7,6 +7,7 @@ class OrderAddress
     validates :city
     validates :address
     validates :phone_number, numericality: { only_integer: true, message: 'には数字を入力してください' }
+    validates :phone_number, length: {in: 1..11, message: 'は11桁以内の数字を入力してください'}
     validates :token
   end
   validates :prefecture_id, numericality: { other_than: 1 }

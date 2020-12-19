@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe OrderAddress, type: :model do
   describe '商品購入' do
     before do
+      user = FactoryBot.build(:user)
+      item = FactoryBot.build(:item)
       @order_address = FactoryBot.build(:order_address)
     end
     context '商品購入がうまくいく時' do
@@ -57,6 +59,11 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include 'Phone number には数字を入力してください'
       end
 
+      it 'phone_numberが11桁以上では購入できない' do
+        @order_address.phone_number = '090123456789'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "Phone number は11桁以内の数字を入力してください"
+      end
       it 'tokenが空だと登録できない' do
         @order_address.token = nil
         @order_address.valid?
