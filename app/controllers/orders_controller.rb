@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
 
   def create
     @order_address = OrderAddress.new(order_params)
-    @user = User.find(current_user.id)
     if @order_address.valid?
       pay_item(@item)
       @order_address.save
