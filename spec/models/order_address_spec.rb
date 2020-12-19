@@ -59,7 +59,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include 'Phone number には数字を入力してください'
       end
 
-      it 'phone_numberが11桁以上では購入できない' do
+      it 'phone_numberが12桁以上では購入できない' do
         @order_address.phone_number = '090123456789'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include "Phone number は11桁以内の数字を入力してください"
