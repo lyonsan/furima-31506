@@ -6,7 +6,6 @@ const pay = () => {
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
     const card = {
-      //getのあとはinput/textareaのname属性を入れる
       number: formData.get("order_address[number]"),
       cvc: formData.get("order_address[cvc]"),
       exp_month: formData.get("order_address[exp_month]"),
