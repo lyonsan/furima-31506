@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @user = User.find(current_user.id)
     if @order_address.valid?
       pay_item(@item)
-      @order_address.save(@user, @item)
+      @order_address.save
       redirect_to root_path
     else
       render action: :index
