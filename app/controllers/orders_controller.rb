@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
 
   def order_params
     #ストロングパラメータでは、permitに設定するものはフォームで入力して受け取るもの、それ以外(今回でいうとuser_id)は
-    params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(token: params[:token], user_id: current_user.id)
+    params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id])
   end
   
   def pay_item(item)
